@@ -24,3 +24,8 @@ body {
   border-top: 1px solid lightgray;
   padding-top: 5px;
 }
+
+.add-icon {
+  color: black;
+  margin-bottom: 20px;
+}

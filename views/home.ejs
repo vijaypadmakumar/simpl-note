@@ -1,15 +1,17 @@
 <%- include ("partials/header") %>
 
-
     <div class="container-lg main-section">
+
         <h3>All Notes</h3>
+
+        <a href="/compose" class="add-icon btn btn-dark btn-sm"><i class="fas fa-plus"></i></a>
 
         <p>
             <%=comment%>
         </p>
 
         <% for (const note in all_notes) {%>
-            <div class="card note">
+            <div class="card note shadow-sm p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <h5 class="card-title">
                         <%=all_notes[note][0]%>
