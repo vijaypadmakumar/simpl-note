@@ -53,6 +53,14 @@ app.post("/edit", (req, res) => {
     res.render('edit', { prev_title: title, prev_body: body, post_id: note_id })
 })
 
+app.post("/delete", (req, res) => {
+    let note_id = req.body.delete_button
+
+    delete notes[note_id]
+
+    res.redirect("/")
+})
+
 app.post("/update-post", (req, res) => {
     let note_id = req.body.update_button
     let title = req.body.note_title
