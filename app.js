@@ -13,7 +13,10 @@ app.use(express.static("public/css"))
 app.use(express.static("public/js"))
 
 app.get("/", (req, res) => {
-    res.render('home', { all_notes: notes })
+
+    const message = Object.keys(notes).length === 0 ? "You haven't created any notes yet" : ""
+
+    res.render('home', { all_notes: notes, comment: message })
 })
 
 
