@@ -1,5 +1,4 @@
 const express = require("express")
-const ejs = require("ejs")
 const PORT = process.env.PORT || 3000
 
 const app = express()
@@ -10,7 +9,12 @@ app.use(express.static("public/css"))
 app.use(express.static("public/js"))
 
 app.get("/", (req, res) => {
-    res.render('index')
+    res.render('home')
+})
+
+
+app.get("/compose", (req, res) => {
+    res.render('compose')
 })
 
 app.listen(PORT, () => {
