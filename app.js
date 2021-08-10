@@ -80,14 +80,6 @@ app.post("/update-post", (req, res) => {
 
 })
 
-app.post("/delete", (req, res) => {
-    let note_id = req.body.delete_button
-
-    delete notes[note_id]
-
-    res.redirect("/")
-})
-
 app.listen(PORT, () => {
     console.log(`Server started on ${PORT}`);
 })

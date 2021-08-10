@@ -17,8 +17,8 @@
                     <p class="card-text text-truncate">
                         <%=all_notes[note][1]%>
                     </p>
-                    <form action="/actions" method="post">
-                        <button type="submit" formaction="open" name="open_button" value=<%=note %> class="btn
+                    <form action="" method="post">
+                        <button type="submit" formaction="/open" name="open_button" value=<%=note %> class="btn
                             btn-primary">Open</button>
                         <button type="submit" formaction="/delete" name="delete_button" value=<%=note %> class="btn
                             btn-danger">Delete</button>
