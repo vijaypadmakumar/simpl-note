@@ -6,3 +6,11 @@ body {
 .main-section {
   margin-top: 50px;
 }
+
+.notes {
+  margin-top: 50px;
+}
+
+.note {
+  margin: 20px;
+}
