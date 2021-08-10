@@ -14,16 +14,20 @@
                     <h5 class="card-title">
                         <%=all_notes[note][0]%>
                     </h5>
-                    <p class="card-text">
+                    <p class="card-text text-truncate">
                         <%=all_notes[note][1]%>
                     </p>
-                    <form action="/edit" method="post">
-                        <button type="submit" class="btn btn-primary">Edit</button>
+                    <form action="/actions" method="post">
+                        <button type="submit" formaction="open" name="open_button" value=<%=note %> class="btn
+                            btn-primary">Open</button>
+                        <button type="submit" formaction="/delete" name="delete_button" value=<%=note %> class="btn
+                            btn-danger">Delete</button>
+                        <button type="submit" formaction="/edit" name="edit_button" value=<%=note %> class="btn
+                            btn-warning">Edit</button>
                     </form>
                 </div>
             </div>
             <% }%>
-                <% %>
     </div>
     </div>
 

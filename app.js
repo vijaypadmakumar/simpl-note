@@ -24,10 +24,6 @@ app.get("/compose", (req, res) => {
     res.render('compose')
 })
 
-app.get('/edit', (req, res) => {
-    res.render('edit')
-})
-
 app.post("/", (req, res) => {
     let title = req.body.note_title
     let text = req.body.note_text
@@ -38,6 +34,50 @@ app.post("/", (req, res) => {
     if (title.length && text.length) {
         notes[hash] = [title, text]
     }
+
+    res.redirect("/")
+})
+
+app.post("/open", (req, res) => {
+    let note_id = req.body.open_button
+
+    res.render('open', { title: notes[note_id][0], body: notes[note_id][1] })
+})
+
+app.post("/edit", (req, res) => {
+    let note_id = req.body.edit_button
+
+    let title = notes[note_id][0]
+    let body = notes[note_id][1]
+
+    console.log(title, body);
+
+    res.render('edit', { prev_title: title, prev_body: body, post_id: note_id })
+})
+
+app.post("/update-post", (req, res) => {
+    let note_id = req.body.update_button
+    let title = req.body.note_title
+    let text = req.body.note_text
+
+    // removing the old note
+    delete notes[note_id]
+
+    // adding the new note
+    let hash = stringHash(title + text)
+
+    if (title.length && text.length) {
+        notes[hash] = [title, text]
+    }
+
+    res.redirect("/")
+
+})
+
+app.post("/delete", (req, res) => {
+    let note_id = req.body.delete_button
+
+    delete notes[note_id]
 
     res.redirect("/")
 })

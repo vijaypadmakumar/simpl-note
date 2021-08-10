@@ -1,7 +1,23 @@
-<%- include ('header') %>
+<%- include ('partials/header') %>
 
     <div class="container-lg main-section">
-        <h3>Edit Note</h3>
+        <h3>Edit </h3>
+        <form action="/update-post" method="post">
+            <div class="input-area">
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control" name="note_title" autocomplete="off" value=<%-prev_title%>>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Note</label>
+                    <textarea name="note_text" class="form-control" rows="10" autocomplete="off">
+                        <%- prev_body %>
+                    </textarea>
+                </div>
+            </div>
+            <button type="submit" name="update_button" value=<%=post_id%> class="btn
+                btn-warning">Update</button>
+        </form>
     </div>
 
-    <%- include ('footer') %>
+    <%- include ('partials/footer') %>
