@@ -1,7 +1,6 @@
 const express = require("express")
 const stringHash = require("string-hash")
 const PORT = process.env.PORT || 3000
-const string = require("string-hash")
 
 const app = express()
 
