@@ -21,21 +21,20 @@ app.get("/compose", (req, res) => {
     res.render('compose')
 })
 
+app.get('/edit', (req, res) => {
+    res.render('edit')
+})
+
 app.post("/", (req, res) => {
     let title = req.body.note_title
     let text = req.body.note_text
 
-    /* needs to be moved to a module */
-
+    // creating a unique id
     let hash = stringHash(title + text)
 
     if (title.length && text.length) {
         notes[hash] = [title, text]
     }
-
-    console.log(notes);
-
-    /* end */
 
     res.redirect("/")
 })
