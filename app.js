@@ -11,6 +11,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public/css"))
 app.use(express.static("public/js"))
+app.use(express.static("public/favicon"))
 
 app.get("/", (req, res) => {
 
@@ -46,11 +47,8 @@ app.post("/open", (req, res) => {
 
 app.post("/edit", (req, res) => {
     let note_id = req.body.edit_button
-
     let title = notes[note_id][0]
     let body = notes[note_id][1]
-
-    console.log(title, body);
 
     res.render('edit', { prev_title: title, prev_body: body, post_id: note_id })
 })
